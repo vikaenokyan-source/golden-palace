@@ -43,4 +43,5 @@ python3 -m http.server 8000
 
 ## Публикация
 
-Сайт статический и работает на GitHub Pages: Settings → Pages → Deploy from branch → `main` / root.
+Сайт публикуется через Vercel: Add New → Project → импортировать репозиторий `golden-palace`,
+Framework Preset — Other, сборка не нужна (статические файлы из корня). После этого каждый push в `main` выкладывается автоматически.
