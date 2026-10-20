@@ -70,16 +70,18 @@
 
 <main id="top">
 
-<!-- ГЛАВНЫЙ ЭКРАН -->
+<!-- ГЛАВНЫЙ ЭКРАН: на всю высоту окна вместе с бегущей строкой -->
+<div class="hero-screen">
 <section class="hero">
   <div class="hero__bg" aria-hidden="true"></div>
-  <p class="hero__vertical" aria-hidden="true">moments in gold</p>
+  <svg class="hero__ring" viewBox="0 0 600 600" aria-hidden="true"><circle cx="300" cy="300" r="296"/><circle cx="300" cy="300" r="262"/></svg>
+  <p class="hero__vertical" aria-hidden="true">bringing people together</p>
   <div class="hero__media">
-    <div class="hero__arch reveal">
-      <video class="hero__video" id="heroVideo" muted playsinline loop preload="none" poster="assets/img/halls/zolotoy-01.webp" data-src="assets/video/hero.mp4"></video>
+    <div class="hero__frame" aria-hidden="true"></div>
+    <div class="hero__arch">
       <img src="assets/img/halls/zolotoy-01.webp" alt="Зал «Золотой»: хрустальные подвесы, круглые столы и подиум для молодожёнов" class="hero__img" fetchpriority="high">
     </div>
-    <div class="hero__small reveal" style="--d:.25s">
+    <div class="hero__small">
       <img src="assets/img/halls/zolotoy-10.webp" alt="Сервировка банкетного стола с цветами" loading="eager">
     </div>
     <div class="seal" aria-label="Выбор невест 2026 по версии WedWed">
@@ -91,19 +93,25 @@
     </div>
   </div>
   <div class="hero__text">
-    <p class="script reveal">welcome</p>
-    <h1 class="reveal" style="--d:.1s">Golden Palace<span>банкетный комплекс в&nbsp;центре Москвы</span></h1>
-    <p class="hero__lead reveal" style="--d:.2s">Четыре зала для свадеб, юбилеев и&nbsp;корпоративов&nbsp;— от&nbsp;камерного вечера до&nbsp;торжества на&nbsp;650&nbsp;гостей. Комплекс недавно прошёл полный ребрендинг.</p>
-    <div class="hero__btns reveal" style="--d:.3s">
+    <p class="hero__over"><span></span>банкетный комплекс · москва</p>
+    <p class="script hero__script">welcome</p>
+    <h1 class="hero__title">
+      <span class="hero__line"><span>Golden</span></span>
+      <span class="hero__line hero__line--2"><span><em>Palace</em></span></span>
+      <span class="visually-hidden"> — банкетный комплекс в центре Москвы</span>
+    </h1>
+    <p class="hero__lead">Четыре зала для свадеб, юбилеев и&nbsp;корпоративов&nbsp;— от&nbsp;камерного вечера до&nbsp;торжества на&nbsp;650&nbsp;гостей в&nbsp;самом центре Москвы.</p>
+    <div class="hero__btns">
       <a href="#booking" class="btn">Узнать свободные даты</a>
       <a href="#halls" class="btn btn--ghost">Смотреть залы</a>
     </div>
-    <ul class="hero__facts reveal" style="--d:.4s">
+    <ul class="hero__facts">
       <li><b>4</b>зала</li>
-      <li><b>650</b>гостей</li>
-      <li><b>5 000 ₽</b>меню от</li>
+      <li><b>до 650</b>гостей</li>
+      <li><b>от 5 000 ₽</b>меню на гостя</li>
     </ul>
   </div>
+  <a href="#about" class="hero__scroll" aria-label="Листать вниз"><span>scroll</span><i></i></a>
 </section>
 
 <!-- Бегущая строка форматов -->
@@ -112,6 +120,7 @@
     <span>Свадьбы</span><i>✦</i><span>Юбилеи</span><i>✦</i><span>Корпоративы</span><i>✦</i><span>Выпускные</span><i>✦</i><span>Дни рождения</span><i>✦</i><span>Презентации</span><i>✦</i><span>Выездная регистрация</span><i>✦</i>
     <span aria-hidden="true">Свадьбы</span><i>✦</i><span aria-hidden="true">Юбилеи</span><i>✦</i><span aria-hidden="true">Корпоративы</span><i>✦</i><span aria-hidden="true">Выпускные</span><i>✦</i><span aria-hidden="true">Дни рождения</span><i>✦</i><span aria-hidden="true">Презентации</span><i>✦</i><span aria-hidden="true">Выездная регистрация</span><i>✦</i>
   </div>
+</div>
 </div>
 
 <!-- МИССИЯ -->
@@ -255,7 +264,7 @@
     </div>
     <div class="ceremony__img">
       <img src="assets/img/halls/vyezd-01.webp" alt="Выездная регистрация: золотые стулья и цветочная арка" loading="lazy">
-      <img class="deco deco--ceremony" data-optional src="assets/img/gen/flowers-corner.png" alt="" aria-hidden="true">
+      <img class="deco deco--ceremony" src="assets/img/gen/flowers-corner.webp" loading="lazy" alt="" aria-hidden="true">
     </div>
   </div>
 </section>
@@ -298,18 +307,23 @@
     <h2 class="h2 reveal">Для каких событий</h2>
   </div>
   <div class="formats__grid">
-    <figure class="fcard reveal"><img src="assets/img/halls/zolotoy-06.webp" data-gen="assets/img/gen/format-wedding.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 4h4l-2 3z"/></svg>Свадьбы</figcaption></figure>
-    <figure class="fcard reveal" style="--d:.08s"><img src="assets/img/halls/zolotoy-05.webp" data-gen="assets/img/gen/format-jubilee.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3l1 4M16 3l-1 4M5 21l3-14h8l3 14M8 13h8"/></svg>Юбилеи</figcaption></figure>
-    <figure class="fcard reveal" style="--d:.16s"><img src="assets/img/halls/sfera-03.webp" data-gen="assets/img/gen/format-corporate.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V5h6v3M3 13h18"/></svg>Корпоративы</figcaption></figure>
-    <figure class="fcard reveal"><img src="assets/img/halls/sfera-07.webp" data-gen="assets/img/gen/format-graduation.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg>Выпускные</figcaption></figure>
-    <figure class="fcard reveal" style="--d:.08s"><img src="assets/img/halls/zolotoy-07.webp" data-gen="assets/img/gen/format-birthday.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16v-8H4zM4 16c2.7 1.5 5.3 1.5 8 0s5.3-1.5 8 0M12 13V9M12 6a1.5 1.5 0 001.5-1.5C13.5 3.5 12 2 12 2s-1.5 1.5-1.5 2.5A1.5 1.5 0 0012 6z"/></svg>Дни рождения</figcaption></figure>
-    <figure class="fcard reveal" style="--d:.16s"><img src="assets/img/halls/kino-03.webp" data-gen="assets/img/gen/format-presentation.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v5M8 21h8"/></svg>Презентации и&nbsp;конференции</figcaption></figure>
+    <figure class="fcard reveal"><img src="assets/img/gen/format-wedding.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 4h4l-2 3z"/></svg>Свадьбы</figcaption></figure>
+    <figure class="fcard reveal" style="--d:.08s"><img src="assets/img/gen/format-jubilee.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3l1 4M16 3l-1 4M5 21l3-14h8l3 14M8 13h8"/></svg>Юбилеи</figcaption></figure>
+    <figure class="fcard reveal" style="--d:.16s"><img src="assets/img/gen/format-corporate.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V5h6v3M3 13h18"/></svg>Корпоративы</figcaption></figure>
+    <figure class="fcard reveal"><img src="assets/img/gen/format-graduation.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg>Выпускные</figcaption></figure>
+    <figure class="fcard reveal" style="--d:.08s"><img src="assets/img/gen/format-birthday.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16v-8H4zM4 16c2.7 1.5 5.3 1.5 8 0s5.3-1.5 8 0M12 13V9M12 6a1.5 1.5 0 001.5-1.5C13.5 3.5 12 2 12 2s-1.5 1.5-1.5 2.5A1.5 1.5 0 0012 6z"/></svg>Дни рождения</figcaption></figure>
+    <figure class="fcard reveal" style="--d:.16s"><img src="assets/img/gen/format-presentation.webp" alt="" loading="lazy"><figcaption><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v5M8 21h8"/></svg>Презентации и&nbsp;конференции</figcaption></figure>
   </div>
 </section>
 
 <!-- ПАНОРАМА + ПРОЦЕСС (как в референсе 2) -->
 <section class="process">
-  <div class="process__bg" aria-hidden="true"><img src="assets/img/halls/zolotoy-04.webp" alt="" loading="lazy"></div>
+  <div class="process__bg" aria-hidden="true">
+    <div class="process__media">
+      <img class="process__poster" src="assets/img/halls/process-poster.webp" srcset="assets/img/halls/process-poster-mobile.webp 960w, assets/img/halls/process-poster.webp 1920w" sizes="100vw" alt="" loading="lazy">
+      <video class="process__video" muted playsinline loop preload="none" data-src="assets/video/process.mp4" data-src-mobile="assets/video/process-mobile.mp4"></video>
+    </div>
+  </div>
   <div class="process__card reveal">
     <p class="script script--sm">step by step</p>
     <h2 class="h2">Как мы&nbsp;работаем</h2>
@@ -325,8 +339,8 @@
 <!-- МЕНЮ И АЛКОГОЛЬ -->
 <section class="menu" id="menu">
   <div class="menu__imgs">
-    <div class="menu__img menu__img--1 reveal"><img src="assets/img/halls/kino-01.webp" data-gen="assets/img/gen/menu-1.webp" alt="Банкетная сервировка" loading="lazy"></div>
-    <div class="menu__img menu__img--2 reveal" style="--d:.12s"><img src="assets/img/halls/sfera-04.webp" data-gen="assets/img/gen/menu-2.webp" alt="Банкетный стол" loading="lazy"></div>
+    <div class="menu__img menu__img--1 reveal"><img src="assets/img/gen/menu-1.webp" alt="Банкетная сервировка" loading="lazy"></div>
+    <div class="menu__img menu__img--2 reveal" style="--d:.12s"><img src="assets/img/gen/menu-2.webp" alt="Банкетный стол" loading="lazy"></div>
   </div>
   <div class="menu__text">
     <p class="num reveal">05</p>
@@ -345,8 +359,8 @@
 <!-- ПОДАРОК -->
 <section class="gift" id="gift">
   <div class="gift__card reveal">
-    <img class="deco deco--gift-l" data-optional src="assets/img/gen/flowers-left.png" alt="" aria-hidden="true">
-    <img class="deco deco--gift-r" data-optional src="assets/img/gen/flowers-right.png" alt="" aria-hidden="true">
+    <img class="deco deco--gift-l" src="assets/img/gen/flowers-left.webp" loading="lazy" alt="" aria-hidden="true">
+    <img class="deco deco--gift-r" src="assets/img/gen/flowers-right.webp" loading="lazy" alt="" aria-hidden="true">
     <p class="gift__over">подарок за бронирование</p>
     <h2 class="gift__title">Golden <em>&amp;</em> Gift</h2>
     <div class="gift__grid">
@@ -407,7 +421,7 @@
 <!-- ФОРМА -->
 <section class="booking" id="booking">
   <div class="booking__card">
-    <img class="deco deco--booking" data-optional src="assets/img/gen/flowers-corner.png" alt="" aria-hidden="true">
+    <img class="deco deco--booking" src="assets/img/gen/flowers-right.webp" loading="lazy" alt="" aria-hidden="true">
     <div class="booking__intro">
       <p class="script reveal">save the date</p>
       <h2 class="h2 reveal">Узнайте свободные даты</h2>
@@ -480,27 +494,43 @@
 </main>
 
 <footer class="footer">
-  <div class="footer__top">
-    <a href="#top" class="logo logo--footer" aria-label="Golden Palace"><span class="logo__word">Golden</span> <span class="logo__word logo__word--2">Palace</span></a>
-    <p class="script script--sm">a moscow venue</p>
+  <div class="footer__in">
+    <div class="footer__cta">
+      <p class="script script--sm">let&rsquo;s celebrate</p>
+      <h2 class="footer__title">Ваш праздник начинается здесь</h2>
+      <div class="footer__btns">
+        <a href="#booking" class="btn">Узнать свободные даты</a>
+        <a href="https://wa.me/79668877298" class="btn btn--ghost" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <nav aria-label="Меню в подвале">
+        <h3>Меню</h3>
+        <a href="#about">О комплексе</a>
+        <a href="#halls">Залы</a>
+        <a href="#menu">Банкетное меню</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <div>
+        <h3>Контакты</h3>
+        <p>Москва, 3-я улица Ямского Поля,&nbsp;15</p>
+        <p><a href="tel:+79668877298">+7 (966) 887-72-98</a></p>
+        <p>Охраняемая парковка</p>
+      </div>
+      <div>
+        <h3>Бронирование</h3>
+        <p>Банкетный менеджер Виктория</p>
+        <p><a href="#booking">Записаться на просмотр</a></p>
+        <p><a href="#gift">Подарок за бронирование</a></p>
+      </div>
+    </div>
   </div>
-  <nav class="footer__nav" aria-label="Меню в подвале">
-    <a href="#about">О комплексе</a><a href="#halls">Залы</a><a href="#menu">Меню</a><a href="#gallery">Галерея</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a>
-  </nav>
-  <div class="footer__cols">
-    <div><p class="script script--sm">come say hi</p><p>Москва, 3-я улица Ямского Поля,&nbsp;15</p></div>
-    <div><p class="script script--sm">call us</p><p><a href="tel:+79668877298">+7 (966) 887-72-98</a></p></div>
-    <div><p class="script script--sm">book a tour</p><p><a href="#booking">Записаться на просмотр</a></p></div>
+  <p class="footer__word" aria-hidden="true">Golden Palace</p>
+  <div class="footer__bottom">
+    <span>© <span id="year">2026</span> Golden Palace · банкетный комплекс · Москва</span>
+    <a href="#top">Наверх ↑</a>
   </div>
-  <div class="footer__strip" aria-hidden="true">
-    <img src="assets/img/halls/zolotoy-03.webp" alt="" loading="lazy">
-    <img src="assets/img/halls/sfera-01.webp" alt="" loading="lazy">
-    <img src="assets/img/halls/zolotoy-14.webp" alt="" loading="lazy">
-    <img src="assets/img/halls/antichny-04.webp" alt="" loading="lazy">
-    <img src="assets/img/halls/zolotoy-08.webp" alt="" loading="lazy">
-    <img src="assets/img/halls/kino-03.webp" alt="" loading="lazy">
-  </div>
-  <p class="footer__copy">© <span id="year">2026</span> Golden Palace · банкетный комплекс · Москва</p>
 </footer>
 
 <!-- Мобильная панель -->

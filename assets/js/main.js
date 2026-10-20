@@ -39,9 +39,18 @@
   // ---------- Шапка, мобильная панель, параллакс ----------
   var header = $('#header');
   var mbar = $('.mbar');
-  var processImg = $('.process__bg img');
+  var processImg = $('.process__media');
   var booking = $('#booking');
   var ticking = false;
+
+  // Высота плашки и шапки — чтобы первый экран занимал ровно окно
+  var topbar = $('.topbar');
+  function setTop() {
+    document.documentElement.style.setProperty('--top', (topbar.offsetHeight + header.offsetHeight) + 'px');
+  }
+  setTop();
+  window.addEventListener('resize', setTop);
+
   function onScroll() {
     var y = window.scrollY;
     header.classList.toggle('is-scrolled', y > 40);
@@ -74,7 +83,7 @@
   });
   $$('a', mnav).forEach(function (a) { a.addEventListener('click', closeMenu); });
 
-  // ---------- Сгенерированные картинки и видео подхватываются, если файлы есть ----------
+  // ---------- Сгенерированные картинки подхватываются, если файлы есть ----------
   $$('img[data-gen]').forEach(function (img) {
     var probe = new Image();
     probe.onload = function () { img.src = img.getAttribute('data-gen'); };
@@ -84,17 +93,27 @@
     if (img.complete && img.naturalWidth === 0) img.remove();
     else img.addEventListener('error', function () { img.remove(); });
   });
-  var video = $('#heroVideo');
+  // ---------- Видео в блоке «Как мы работаем»: грузится, только когда до него долистали ----------
+  var pVideo = $('.process__video');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (video && !reduceMotion && location.protocol !== 'file:') {
-    fetch(video.getAttribute('data-src'), { method: 'HEAD' }).then(function (res) {
-      if (!res.ok) return;
-      video.src = video.getAttribute('data-src');
-      video.addEventListener('canplay', function () {
-        video.play().then(function () { video.classList.add('is-ready'); }).catch(function () {});
-      }, { once: true });
-      video.load();
-    }).catch(function () {});
+  var saveData = navigator.connection && navigator.connection.saveData;
+  if (pVideo && 'IntersectionObserver' in window && !reduceMotion && !saveData) {
+    var pStarted = false;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          if (!pStarted) {
+            pStarted = true;
+            pVideo.addEventListener('playing', function () { pVideo.classList.add('is-playing'); }, { once: true });
+            pVideo.src = window.innerWidth < 900 ? pVideo.getAttribute('data-src-mobile') : pVideo.getAttribute('data-src');
+          }
+          var pr = pVideo.play();
+          if (pr) pr.catch(function () {});
+        } else if (pStarted) {
+          pVideo.pause();
+        }
+      });
+    }, { rootMargin: '300px 0px' }).observe(pVideo);
   }
 
   // ---------- Галерея-слайдер ----------

@@ -11,7 +11,8 @@ assets/css/style.css     — стили
 assets/js/main.js        — анимации, галерея, лайтбокс, калькулятор, форма заявки
 assets/img/halls/        — реальные фото залов (webp): zolotoy-, sfera-, antichny-, kino-, vyezd-
 assets/img/gen/          — сюда класть сгенерированные картинки (см. PROMPTS.md)
-assets/video/hero.mp4    — видео для главного экрана (необязательно)
+assets/video/            — видео для блока «Как мы работаем»: process.mp4 (компьютер), process-mobile.mp4 (телефон);
+                           грузится только при прокрутке к блоку, до этого виден постер process-poster*.webp
 PROMPTS.md               — промпты для генерации картинок и видео
 ```
 
