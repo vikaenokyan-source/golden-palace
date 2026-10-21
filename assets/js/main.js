@@ -28,7 +28,14 @@
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        if (e.isIntersecting) {
+          var el = e.target;
+          el.classList.add('is-in');
+          io.unobserve(el);
+          // когда появление закончилось (1 с + задержка) — включаем быстрые переходы для наведения
+          var delay = parseFloat(getComputedStyle(el).transitionDelay) || 0;
+          setTimeout(function () { el.classList.add('is-done'); }, 1100 + delay * 1000);
+        }
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     reveals.forEach(function (el) { io.observe(el); });
@@ -115,6 +122,29 @@
       });
     }, { rootMargin: '300px 0px' }).observe(pVideo);
   }
+
+  // ---------- Плавное раскрытие вопросов ----------
+  $$('.faq details').forEach(function (d) {
+    var summary = d.querySelector('summary');
+    var body = d.querySelector('p');
+    summary.addEventListener('click', function (e) {
+      if (reduceMotion || !body.animate) return; // без анимации — обычное поведение
+      e.preventDefault();
+      if (d.classList.contains('is-animating')) return;
+      d.classList.add('is-animating');
+      var done = function () { d.classList.remove('is-animating'); };
+      if (!d.open) {
+        d.open = true;
+        var h = body.offsetHeight;
+        body.animate([{ height: '0px', opacity: 0 }, { height: h + 'px', opacity: 1 }],
+          { duration: 450, easing: 'cubic-bezier(.2, .7, .2, 1)' }).onfinish = done;
+      } else {
+        d.classList.add('is-closing');
+        body.animate([{ height: body.offsetHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
+          { duration: 350, easing: 'cubic-bezier(.4, 0, .2, 1)' }).onfinish = function () { d.open = false; d.classList.remove('is-closing'); done(); };
+      }
+    });
+  });
 
   // ---------- Галерея-слайдер ----------
   var track = $('#galTrack');
